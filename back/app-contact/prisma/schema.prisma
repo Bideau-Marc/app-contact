@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Employe {
+  id               String             @id @default(uuid())
+  name             String?
+  email            String             @unique
+  password         String             @map("hashed_password")
+  creationDate     DateTime           @default(now())
+  contactsEmployes ContactsEmployes[]
+
+  @@map("employes")
+}
+
+model Contact {
+  id               String             @id @default(uuid())
+  name             String?
+  email            String             @unique
+  phone            String?
+  address          String?
+  status           String?
+  contactsEmployes ContactsEmployes[]
+
+  @@map("contacts")
+}
+
+// TABLE DE LIAISON N-N avec propriété supplémentaire
+model ContactsEmployes {
+  id            String    @id @default(uuid())
+  estArchive    Boolean   @default(false) @map("est_archive")
+  dateArchivage DateTime? @map("date_archivage")
+  dateCreation  DateTime  @default(now()) @map("date_creation")
+  notes         String?
+  // Clés étrangères
+  employeId     String    @map("employe_id")
+  contactId     String    @map("contact_id")
+
+  // Relations
+  employe Employe @relation(fields: [employeId], references: [id], onDelete: Cascade)
+  contact Contact @relation(fields: [contactId], references: [id], onDelete: Cascade)
+
+  // Contrainte d'unicité sur la paire employeId + contactId
+  @@unique([employeId, contactId])
+  @@map("contacts_employes")
+}

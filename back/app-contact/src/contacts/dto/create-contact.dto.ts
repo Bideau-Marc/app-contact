@@ -1,0 +1,7 @@
+export class CreateContactDto {
+    readonly name?: string;
+    readonly email: string;
+    readonly phone?: string;
+    readonly address?: string;
+    readonly status?: string;
+}
