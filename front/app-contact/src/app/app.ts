@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +9,16 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected title = 'app-contact';
+  constructor(private router: Router) {
+
+  }
+  isLoginPage() {
+    console.log('login', this.router.url);
+
+    return this.router.url === '/login'
+
+  }
+  logout() {
+    this.router.navigateByUrl('/login')
+  }
 }

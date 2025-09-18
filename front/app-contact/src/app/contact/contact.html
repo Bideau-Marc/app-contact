@@ -1,0 +1,39 @@
+<div class="form-container">
+    <h2>➕ Nouveau Contact</h2>
+
+    <form (ngSubmit)="onSubmit()" class="contact-form">
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" [(ngModel)]="contact.name" name="nom" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" [(ngModel)]="contact.email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Téléphone</label>
+            <input type="tel" id="phone" [(ngModel)]="contact.phone" name="phone">
+        </div>
+
+        <div class="form-group">
+            <label for="address">Adresse</label>
+            <textarea id="address" [(ngModel)]="contact.address" name="address" rows="2"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="status">Statut</label>
+            <select id="status" [(ngModel)]="contact.status" name="status">
+                <option value="actif">Actif</option>
+                <option value="inactif">Inactif</option>
+                <option value="en attente">En attente</option>
+            </select>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Créer le contact</button>
+            <button type="button" class="btn btn-secondary" (click)="undo()">Annuler</button>
+        </div>
+    </form>
+</div>

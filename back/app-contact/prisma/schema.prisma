@@ -39,7 +39,7 @@ model Contact {
 // TABLE DE LIAISON N-N avec propriété supplémentaire
 model ContactsEmployes {
   id            String    @id @default(uuid())
-  estArchive    Boolean   @default(false) @map("est_archive")
+  isArchived    Boolean   @default(false) @map("isArchived")
   dateArchivage DateTime? @map("date_archivage")
   dateCreation  DateTime  @default(now()) @map("date_creation")
   notes         String?

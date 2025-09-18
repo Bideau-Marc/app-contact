@@ -45,14 +45,18 @@ export class ContactsService {
         });
     }
 
-    async linkWithContact(contactId: string, employeId: string) {
-        return this.prisma.contactsEmployes.create({
+    async archiveContact(employeId: string, contactId: string) {
+        return this.prisma.contactsEmployes.update({
+            where: {
+                employeId_contactId: {
+                    employeId,
+                    contactId
+                }
+            },
             data: {
-                contactId,
-                employeId: employeId
+                isArchived: true
             }
         });
-
     }
 
     async AddContactNote(employeId: string, contactId: string, note: string) {

@@ -1,0 +1,320 @@
+.app-container {
+    padding: 2rem;
+    min-height: 100vh;
+
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.app-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.5rem;
+}
+
+.app-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+}
+
+.contacts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    justify-content: center;
+    margin: 0 auto;
+    /* Centre la grille elle-même */
+}
+
+.contacts-column {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.column-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.column-icon {
+    font-size: 1.5rem;
+}
+
+.column-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.active-column .column-title {
+    color: #10b981;
+}
+
+.archived-column .column-title {
+    color: #6b7280;
+}
+
+.contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* max-height: 600px;
+    overflow-y: auto; */
+    /* padding-right: 0.5rem; */
+}
+
+.contacts-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.contacts-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.contacts-list::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.contact-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    position: relative;
+    /* overflow: hidden; */
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.active-column .contact-card {
+    border-left: 4px solid #10b981;
+}
+
+.archived-column .contact-card {
+    border-left: 4px solid #6b7280;
+    opacity: 0.8;
+}
+
+.contact-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.contact-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+}
+
+.status-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: white;
+    text-transform: capitalize;
+}
+
+.status-active {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.status-inactive {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.contact-info {
+    display: grid;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #4b5563;
+}
+
+.contact-detail .icon {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.contact-detail .label {
+    font-weight: 500;
+    min-width: 80px;
+}
+
+.contact-detail .value {
+    color: #1f2937;
+    word-break: break-word;
+}
+
+.contact-actions {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-archive {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.btn-archive:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    transform: translateY(-1px);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #6b7280;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+}
+
+.app-footer {
+    text-align: center;
+    padding: 2rem;
+}
+
+.home-text {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+}
+
+
+
+.create-contact {
+    background: linear-gradient(135deg, #4447ef, #2629dc);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+
+.create-contact:hover {
+    background: linear-gradient(135deg, #4447ef, #2629dc);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
+}
+
+@media (max-width: 768px) {
+    .contacts-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .app-container {
+        padding: 1rem;
+    }
+
+    .contacts-column {
+        padding: 1.5rem;
+    }
+}
+
+/* Style général des inputs */
+.contact-info input {
+    /* un gris moyen par défaut */
+    width: 100%;
+    padding: 8px 12px;
+    margin-top: 4px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background-color: #f9f9f9;
+}
+
+/* Effet au focus */
+.contact-info input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    background-color: #fff;
+    box-shadow: 0 0 6px rgba(74, 144, 226, 0.3);
+}
+
+/* Spécifique aux inputs date pour garder un look cohérent */
+.contact-info input[type="date"] {
+    font-family: inherit;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+/* Labels alignés avec les inputs */
+.contact-detail .label {
+    font-weight: 600;
+    color: #333;
+    margin-right: 6px;
+    display: inline-block;
+    min-width: 70px;
+    /* pour bien aligner les champs */
+}
+
+/* Espacement entre chaque champ */
+.contact-detail {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.div-button-create-contact {
+
+    /* le div qui englobe ton contenu Home */
+    display: flex;
+    justify-content: center;
+    /* centre horizontalement */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* si tu veux un petit espace du haut */
+
+}

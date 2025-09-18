@@ -1,0 +1,23 @@
+<div class="login-container">
+    <h2 class="login-title">Login</h2>
+
+    <form (ngSubmit)="login()" class="login-form">
+        <input [(ngModel)]="employe.email" name="email" type="email" placeholder="Email" required
+            [class.is-invalid]="hasError('User not found') || hasError('Bad email')" />
+
+        <input [(ngModel)]="employe.password" name="password" type="password" placeholder="Password" required
+            [class.is-invalid]="hasError('Invalid password')" />
+
+        <button type="submit">Se connecter</button>
+
+        @if (hasError('User not found')) {
+        <p class="error-msg">❌ Utilisateur non trouvé</p>
+        }
+        @if (hasError('Invalid password')) {
+        <p class="error-msg">❌ Mauvais email ou mot de passe</p>
+        }
+        @if (hasError('Bad email')) {
+        <p class="error-msg">❌ Adresse email mal formée</p>
+        }
+    </form>
+</div>
